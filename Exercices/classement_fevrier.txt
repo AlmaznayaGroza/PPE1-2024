@@ -1,0 +1,15 @@
+  64 France
+  23 Syrie
+  17 États-Unis
+  13 Terre
+  13 Russie
+  13 Paris
+  10 Turquie
+  10 Lille
+  10 Europe
+   9 Royaume-Uni
+   9 Irak
+   9 Canada
+   8 Australie
+   8 Andromède
+   6 RDC

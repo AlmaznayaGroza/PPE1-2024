@@ -17,7 +17,8 @@ Je pourrai ensuite lancer, successivement, les commandes suivantes:
     - "git push", pour "pousser" les modifications vers mon dépôt en ligne
 
 
-## Git exercices (13/10)
+## Git exercices (13/10): correction d’erreurs
+
 
 # Création de mon fichier oups
 

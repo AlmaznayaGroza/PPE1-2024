@@ -14,3 +14,5 @@ Je pourrai ensuite lancer, successivement, les commandes suivantes:
     - "git commit -m “Update #1”", pour valider lesdites modifications, en les accompagnant éventuellement d'une étiquette indicative
     - "git push", pour "pousser" les modifications vers mon dépôt en ligne
 
+
+## Git exercices (13/10)

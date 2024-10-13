@@ -22,6 +22,9 @@ Je pourrai ensuite lancer, successivement, les commandes suivantes:
 
 # Création de mon fichier oups
 
+*Ligne à garder de côté*
+
+
 Afin de faire l'exercice 3
 
 

@@ -1,8 +1,5 @@
 # Journal de bord du projet encadré
 
-Autophagy is NOT the answer
-
-*Cette ligne doit rester après correction*
 
 
 ## Git & manipulation de fichiers (5/10)

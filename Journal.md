@@ -1,5 +1,9 @@
 # Journal de bord du projet encadré
 
+Autophagy is NOT the answer
+
+*Cette ligne doit rester après correction*
+
 
 ## Git & manipulation de fichiers (5/10)
 
@@ -12,3 +16,5 @@ Je pourrai ensuite lancer, successivement, les commandes suivantes:
     - "git add", pour ajouter au suivi les modifications effectuées (staging)
     - "git commit -m “Update #1”", pour valider lesdites modifications, en les accompagnant éventuellement d'une étiquette indicative
     - "git push", pour "pousser" les modifications vers mon dépôt en ligne
+
+## Exercices Git

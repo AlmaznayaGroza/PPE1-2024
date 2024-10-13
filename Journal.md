@@ -1,5 +1,6 @@
 # Journal de bord du projet encadré
 
+Autophagy is NOT the answer
 
 
 ## Git & manipulation de fichiers (5/10)

@@ -1,9 +1,6 @@
 # Journal de bord du projet encadré
 
 
-*Cette ligne doit rester après correction*
-
-
 ## Git & manipulation de fichiers (5/10)
 
 J'ai donc créé ce nouveau journal de bord pour les besoins de l'exercice, puis supprimé mon journal existant après en avoir fait une copie dans un autre dossier.
@@ -38,39 +35,52 @@ Cela m'a provoqué un problème de conflit majeur de versions quand j'ai voulu d
 Je ne sais pas si c'est prévu, mais je pense que la thématique de résolution des conflits de version mériterait d'être réabordée au prochain cours (et notamment, la différence entre git reset et git revert, qui n'est pas complètement claire en ce qui me concerne).
 
 
+## Séance 4
 
-# Création de mon fichier oups
-
-*Ligne à garder de côté*
-
-Afin de faire l'exercice 3
+### Observations post-exercices
 
 
-## Дарэмна ганьбуеш ты, дружа… (Верш Вацлава Ластоўскага, 1923 г.)
 
-Дарэмна ганьбуеш ты, дружа,
-Майму закліканьню да помсты.
-Я мсьцежнік любові. А мсьцежыць
-Я клічу да тых, хто спаможа
-Быці ахвярнай ахвярай,
-Шукаючы праўды сьвятое.
-Ахвярная мсьцежа нам зродзіць
-Чэсных з сабою герояў;
-Нашы пачуцьця ачысьціць,
-Саміх нас падніме душою
-І ворага з часам навучыць
-Чціць нас у змаганьні упорным…
-„Зуб за зуб“ — за ўласныя крыўды
-Вучылі прарокі плаціці.
-Я-ж клічу плаціці у двое —
-За крыўды народу, за ганьбу,
-За зьдзек і няволю, за мукі,
-За кроў і пакору…
-Даволі пакоры ганебнай.
-І лганай любові даволі.
-Хто вольным быць мкнецца
-Умеці разрожніць павінен
-Ад праўды няпраўду і быці
-У патрэбе судзьдзёю.
+### Code ex.4 commenté ligne par ligne
 
-Юры В…
+A première vue, en regardant le nom de la 1ère variable, la ligne "while read -r LINE" et la toute dernière ligne du script, on imagine que ce script lit ligne par ligne un fichier pris en argument et contenant une URL par ligne, puis tente de détecter et décompter les URLs qui ont le bon format (en http(s)://), et les autres.
+
+Analysons ligne par ligne:
+
+```bash
+#!/usr/bin/bash # c'est le shebang, nécessaire pour indiquer que le code doit être interprété par bash, ainsi que le chemin où trouver bash
+
+#Vérification du nb d'arguments passés au script
+if [ $# -ne 1 ] # si le nb d'arguments n'est pas 1
+then
+	echo "ce programme demande un argument " # afficher un msg indiquant que le programme nécessite un argument
+		exit # sortie du programme
+fi
+
+# Création de 3 variables:
+# variable FICHIER_URLS, à laquelle on affecte le 1e (et unique) argument passé au script (vu son nom: fichier contenant des URLS)
+FICHIER_URLS=$1
+# et 2 compteurs
+OK=0 # compteur URLs valides
+NOK=0 # compteur URLS non valdies
+
+# Boucle: tant qu'il y a des lignes à lire dans le fichier, les lit une à une
+while read -r LINE # LINE = variable locale à la boucle, à laquelle est affecté à chaque tour de boucle le contenu de chaque ligne
+# l'option -r permet d'empêcher la commande read d'interpréter les backlslashes contenus dans les lignes comme des caractères d'échappement
+do
+	echo "la ligne: $LINE" # affiche "la ligne: <contenu de la ligne>" à chaque tour de boucle
+	if [[ $LINE =∼ ^https?:// ]] # si la ligne *commence* par http:// ou https:// ('s' optionnel)
+	then
+		echo "ressemble à une URL valide" # afficher qu'on a ce qui ressemble à une URL valide
+		OK=$(expr $OK + 1) # et incrémente le compteur des URLs valides (OK)
+	else # sinon...
+		echo "ne ressemble pas à une URL valide" # ...afficher que la ligne ne ressemble pas à une URL valide
+		NOK=$(expr $NOK + 1) # et incrémente le compteur des URLs non-valides (NOK)
+	fi
+# fin de boucle
+done < $FICHIER_URLS
+# "< $FICHIERS_URLS" signifie que les lignes sont lues depuis le fichier FICHIER_URLS passé en argument au script
+
+# Après avoir parcouru toutes les lignes du fichier, le script affiche un msg final avec le total des URLs valides et non-valides détectées
+echo "$OK URLs et $NOK lignes douteuses"
+```

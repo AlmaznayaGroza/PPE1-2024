@@ -39,6 +39,15 @@ Je ne sais pas si c'est prévu, mais je pense que la thématique de résolution 
 
 ### Observations post-exercices
 
+- J'ai trouvé que pour afficher un message sur plusieurs lignes, on pouvait, au lieu d'utiliser plusieurs echo, n'en utiliser qu'un seul avec l'option -e ("e" -> escape) pour demander à la commande echo d'interpréter les séquences d’échappement comme \n, qui permettent de revenir à la ligne
+
+- J'ai tendance à oublier de crier le nom de mes variables :D
+
+- Quand j'ai voulu lancer mon script compte_par_type_par_an.sh, qui appelle lui-même le script compte_par_type.sh, j'ai eu un message d'erreur m'indiquant que compte_par_type.sh était introuvable. Après avoir un peu galéré, j'ai modifié mon shebang en `#!/bin/bash` (sans /usr), et cela a fonctionné!
+
+- J'ai encore trouvé certaines consignes pas très claires... Par exemple, je n'étais pas sûre à 100% de ce que vous entendiez par "accepter \* pour l’année et le mois" à la fin de l'ex. 2.b. Aussi, je ne savais pas trop ce que vous attendiez que l'on fasse pour la validation des arguments (quel(s) niveau(x) de vérif vous vouliez), et j'ai trouvé cette partie un peu trop difficile à faire avec les éléments de cours que vous aviez donnés. J'ai dû m'aider de ChatGPT pour amorcer l'exercice.
+
+- Pour finir sur une note positive, j'ai trouvé l'exercice où vous nous demandiez de lire et commenter un script très intéressant et instructif pour quelqu'un comme moi qui ne suis pas encore très à l'aise avec les scripts Bash!
 
 
 ### Code ex.4 commenté ligne par ligne

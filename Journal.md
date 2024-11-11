@@ -93,3 +93,31 @@ done < $FICHIER_URLS
 # Après avoir parcouru toutes les lignes du fichier, le script affiche un msg final avec le total des URLs valides et non-valides détectées
 echo "$OK URLs et $NOK lignes douteuses"
 ```
+
+
+## Séance 6
+
+### Question 1 ex. miniprojet
+
+Pourquoi ne pas utiliser `cat` dans le code suivant?
+
+```
+while read -r line;
+do
+echo ${line};
+done < "urls/fr.txt";
+```
+
+Le fait d'utiliser `cat` semble rajouter une étape un peu inutile et redondante, vu que `while read` peut lire directement depuis le fichier, à la source (grâce à l’opérateur `<`). Cette dernière méthode, en plus d'être plus simple et concise (et donc, par conséquent, plus lisible), permet sans doute aussi d'utiliser un peu moins de ressources.
+De plus, d'après mes recherches, lorsqu'on utilise un pipe et une commande après `cat`, Bash crée en fait un sous-shell pour traiter la commande. Dans notre cas, `while` opérerait donc dans ce sous-shell, et toutes les modifications de variables effectuées dans la boucle (comme une incrémentation, typiquement) ne sont pas retransmises au shell parent une fois sortis de la boucle. Cela pourrait donc créer des problèmes avec des scripts plus complexes. Sans `cat`, ces problèmes sont évités car tout s’exécute dans le même shell.
+
+
+\_Ce que j'ai appris en faisant les exercices\_:
+
+- pour numéroter les lignes, j'ai gardé la boucle `while`, et utilisé un compteur, incrémenté à chaque tour de boucle. Mais en faisant des recherches, j'ai également trouvé une solution intéressante et concise: `nl -s $'\t' "urls/fr.txt”`, qui permet de compter et d'ajouter les numéros de lignes, et de spécifier le séparateur de son choix avec -s (j'ai également appris, à cette occasion, un autre usage de $: ici, il permet d'activer l’interprétation des séquences d’échappement dans une chaîne)
+
+- différentes options qu'on peut passer à `curl`: `-o /dev/null` pour que tout le contenu de la page ne soit pas récupéré (“aspire” la page pour obtenir les informations de requête, mais envoie le contenu téléchargé vers /dev/null, ce qui signifie que le contenu de la page n’est pas enregistré, ni affiché); `-s` pour masquer les barres et messages de progression; `-w` permet d'indiquer le format de sortie souhaité (ici, "%{http_code}", donc)
+
+- récupérer l'encodage d'une page: `curl -sI "$url" | grep -i "content-type" | grep -o "charset=[^;]*" | cut -d= -f2` -> l'option `-I` permet de récupérer uniquement les en-têtes HTTP (qui contiennent le charset) d'une URL; `grep -i` permet de rechercher un motif sans tenir compte de la casse; `grep -o "charset=[^;]*"` permet d'afficher uniquement la partie de la ligne qui correspond à l’expression recherchée (à savoir, ici, "charset=" suivi de n’importe quels caractères jusqu’au prochain point-virgule)
+
+- `-z $encoding` teste si la variable contenant l'encodage est vide, et si c'est le cas, de spécifier que l'encodage n'a pas été trouvé

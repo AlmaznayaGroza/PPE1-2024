@@ -121,3 +121,8 @@ De plus, d'après mes recherches, lorsqu'on utilise un pipe et une commande apr�
 - récupérer l'encodage d'une page: `curl -sI "$url" | grep -i "content-type" | grep -o "charset=[^;]*" | cut -d= -f2` -> l'option `-I` permet de récupérer uniquement les en-têtes HTTP (qui contiennent le charset) d'une URL; `grep -i` permet de rechercher un motif sans tenir compte de la casse; `grep -o "charset=[^;]*"` permet d'afficher uniquement la partie de la ligne qui correspond à l’expression recherchée (à savoir, ici, "charset=" suivi de n’importe quels caractères jusqu’au prochain point-virgule)
 
 - `-z $encoding` teste si la variable contenant l'encodage est vide, et si c'est le cas, de spécifier que l'encodage n'a pas été trouvé
+
+
+## 25/11: exercice GitHub pages
+
+Ma page est accessible [ici][https://almaznayagroza.github.io/PPE1-2024/Miniprojet/page/].

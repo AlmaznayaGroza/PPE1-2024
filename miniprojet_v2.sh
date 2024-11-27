@@ -1,7 +1,7 @@
 #!/bin/bash
 
 FICHIER=$1
-OUTPUT="tableau.html"
+OUTPUT="../page/tableau_auto.html"
 
 # vérif argument
 if [[ ! -f "$FICHIER" ]]; then

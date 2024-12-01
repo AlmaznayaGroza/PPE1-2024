@@ -62,13 +62,13 @@ while read -r URL; do
 	
 	#echo -e "$lineno\t$URL\t$http_code\t$encodage\t$nb_mots"
 	
-	echo "<tr>
-		<td>$lineno</td>
-		<td><a class=\"has-text-primary\" href=\"$URL\">$URL</a></td>
-		<td>$http_code</td>
-		<td>$encodage</td>
-		<td>$nb_mots</td>
-	</tr>"
+	echo "								<tr>
+										<td>$lineno</td>
+										<td><a class=\"has-text-primary\" href=\"$URL\">$URL</a></td>
+										<td>$http_code</td>
+										<td>$encodage</td>
+										<td>$nb_mots</td>
+									</tr>"
 	
     ((lineno++))
 

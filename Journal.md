@@ -125,4 +125,10 @@ De plus, d'après mes recherches, lorsqu'on utilise un pipe et une commande apr�
 
 ## 25/11: exercice GitHub pages
 
-Ma page est accessible [ici][https://almaznayagroza.github.io/PPE1-2024/Miniprojet/page/].
+Ma page est accessible [ici][https://almaznayagroza.github.io/PPE1-2024/].
+
+
+## 2/12: exs 2 & 3 de la feuille Miniprojet bonus
+
+J'ai rédigé un script pour chacun de ces exercices. Je crois que j'ai eu moins de mal pour ces exercices que pour l'ex.1, où j'avais eu du mal à trouver une "formule de nettoyage" satisfaisante...
+Je vais désormais me consacrer au projet de groupe!
